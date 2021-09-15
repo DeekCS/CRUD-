@@ -1,0 +1,7 @@
+E:\Code\Tahaluf\OOP\Project\final\FinalProject\bin\Debug\FinalProject.exe.config
+E:\Code\Tahaluf\OOP\Project\final\FinalProject\bin\Debug\FinalProject.exe
+E:\Code\Tahaluf\OOP\Project\final\FinalProject\bin\Debug\FinalProject.pdb
+E:\Code\Tahaluf\OOP\Project\final\FinalProject\obj\Debug\FinalProject.csproj.AssemblyReference.cache
+E:\Code\Tahaluf\OOP\Project\final\FinalProject\obj\Debug\FinalProject.csproj.CoreCompileInputs.cache
+E:\Code\Tahaluf\OOP\Project\final\FinalProject\obj\Debug\FinalProject.exe
+E:\Code\Tahaluf\OOP\Project\final\FinalProject\obj\Debug\FinalProject.pdb

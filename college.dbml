@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="College" Class="collegeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-J6T4HOT\SQLEXPRESS;Initial Catalog=College;Integrated Security=True;Pooling=False" SettingsObjectName="FinalProject.Properties.Settings" SettingsPropertyName="CollegeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.admin" Member="admins">
+    <Type Name="admin">
+      <Column Name="adminId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="adminName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="adminNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="adminEmail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="adminPassword" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="admin_Course" Member="Courses" ThisKey="adminId" OtherKey="adminId" Type="Course" />
+      <Association Name="admin_student" Member="students" ThisKey="adminId" OtherKey="adminId" Type="student" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Courses" Member="Courses">
+    <Type Name="Course">
+      <Column Name="courseId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="studentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="courseLocation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="courseLanguage" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="adminId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Course_score" Member="scores" ThisKey="courseId" OtherKey="courseId" Type="score" />
+      <Association Name="admin_Course" Member="admin" ThisKey="adminId" OtherKey="adminId" Type="admin" IsForeignKey="true" />
+      <Association Name="student_Course" Member="student" ThisKey="studentId" OtherKey="studentId" Type="student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.score" Member="scores">
+    <Type Name="score">
+      <Column Name="scoreId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="studentScore" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="courseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="studentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Course_score" Member="Course" ThisKey="courseId" OtherKey="courseId" Type="Course" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.student" Member="students">
+    <Type Name="student">
+      <Column Name="studentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="studentFirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="studentLastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="gpa" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="studentEmail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="studentPassword" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="adminId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="student_Course" Member="Courses" ThisKey="studentId" OtherKey="studentId" Type="Course" />
+      <Association Name="admin_student" Member="admin" ThisKey="adminId" OtherKey="adminId" Type="admin" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
